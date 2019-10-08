@@ -25,6 +25,10 @@ for y in range(0, nsquares):
         imcpy = im.crop(box)
         imcpy.save(pathout)
 
+        hist = imcpy.histogram() 
+        histpath = "hist/x{:02d}y{:02d}.ddd".format(n, N)
+        histout = open(histpath, "w")
+        print(hist, file=histout)
 
 md_out = []
 for y in range(0, nsquares):
@@ -45,5 +49,10 @@ for y in range(0, nsquares):
 
 fout = open("README.md", "w")
 print("\n".join(md_out), file=fout )
+
+histimg = Image.new("RGBA", 66, 768 )
+histimg.
+
+
 
     
