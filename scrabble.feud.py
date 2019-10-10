@@ -19,7 +19,7 @@ def incBuckets(l, s):
 
 histogram = []
 basename_f = "x{:02d}y{:02d}{:s}"
-uri_f = "https://raw.githubusercontent.com/hnsz/feuddle/master/squares/{:s}"
+uri_f = "https://raw.githubusercontent.com/hnsz/feuddle/outputimages/squares/{:s}"
 mdtag_f = "![square {:d}]({:s})"
 
 dest_dir_img    = "squares" 
