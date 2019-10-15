@@ -2,7 +2,8 @@
 from functools import reduce
 
 import numpy
-from PIL import Image
+from PIL import Image,ImageFilter
+
 import os
 
 def incBuckets(l, s):
@@ -15,6 +16,8 @@ def incBuckets(l, s):
 
         start = subrange
     return newlist
+
+
 
 
 histogram = []
@@ -74,17 +77,16 @@ for m in range(0, nsquares):
         imcpy.save(imgpath)
 
         histogram = imcpy.histogram()
-        histo_r = incBuckets(list(histogram[0:256]), 8)
-        histo_g = incBuckets(list(histogram[256:512]),8)
-        histo_b = incBuckets(list(histogram[512:768]), 8)
 
         hist_fout = open(histpath, "w")
-        print(histo_r, file=hist_fout)
-        print(histo_g, file=hist_fout)
-        print(histo_b, file=hist_fout)
+
+        print(", ".join(map(str, histogram)), file=hist_fout)
         hist_fout.close()
 
 
+
+        # imcpy_edges = imcpy.filter(ImageFilter.FIND_EDGES)
+        # imcpy_edges.save(dest_dir_img+ "/filtered/find_edges/"+square_data[m]["basename_img"])
 
 
 
